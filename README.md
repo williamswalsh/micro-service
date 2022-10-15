@@ -13,9 +13,16 @@ Single microservice.
 CAN I USE DOCKER FOR THIS? Create dockerfile and compose file NB - MOSH
 Submit IMage to ECR????
 
-* Install MySQL database.
-* Create user <i><b>dbUser</b></i> with password <i><b>dbPassword</b></i>
+```shell
+cd dev-environment
+docker-compose up -d 
+```
+* Install Postgres database.
+* Create u_service schema.
+* Create user <i><b>myUser</b></i> with password <i><b>myPassword</b></i>
 * Create schema with name <i><b>dgy_ncp_service</b></i>
+
+Once the application starts LiquidBase change sets will execute if not already executed.
 
 ### How do I get set up? ###
 
