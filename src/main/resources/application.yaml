@@ -1,0 +1,49 @@
+server:
+  port: 9050
+  servlet:
+    session:
+      timeout: 15m
+
+logging:
+  level:
+    org.springframework: INFO
+    net.digitary: INFO
+
+spring:
+  main:
+    banner-mode: OFF
+  datasource:
+    url: ${u-service.db.url}
+    username: ${u-service.db.username}
+    password: ${u-service.db.password}
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: ${u-service.db.schema}
+  liquibase:
+    change-log: classpath:db-changelog.xml
+    contexts: ${spring.profiles.active}
+    url: ${u-service.db.url}
+    user: ${u-service.db.username}
+    password: ${u-service.db.password}
+    default-schema: ${u-service.db.schema}
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+u-service:
+  db:
+    hostname: localhost
+    port: 5432
+    username: myUser
+    password: myPassword
+    name: u_service
+    url: jdbc:postgresql://${u-service.db.hostname}:${u-service.db.port}/${u-service.db.name}
+    schema: public

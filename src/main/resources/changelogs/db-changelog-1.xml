@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+  <changeSet id="Countries Table creation" author="William Walsh">
+      <createSequence cycle="false" incrementBy="1"
+                      minValue="1" sequenceName="hibernate_sequence" startValue="1" />
+
+    <createTable tableName="countries">
+      <column name="id" type="bigserial" autoIncrement="true">
+        <constraints primaryKey="true" nullable="false" />
+      </column>
+      <column name="name" type="varchar(255)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+      <column name="code" type="varchar(100)">
+        <constraints nullable="false" unique="true"/>
+      </column>
+    </createTable>
+
+    <rollback>
+        <dropTable tableName="countries" />
+        <dropSequence sequenceName="hibernate_sequence"/>
+    </rollback>
+
+  </changeSet>
+
+</databaseChangeLog>
