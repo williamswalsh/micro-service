@@ -20,7 +20,7 @@ docker-compose up -d
 * Install Postgres database.
 * Create u_service schema.
 * Create user <i><b>myUser</b></i> with password <i><b>myPassword</b></i>
-* Create schema with name <i><b>dgy_ncp_service</b></i>
+* Create schema with name <i><b>my_service</b></i>
 
 Once the application starts LiquidBase change sets will execute if not already executed.
 
